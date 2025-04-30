@@ -1,0 +1,50 @@
+html, body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 30px;
+}
+
+.title {
+    font-size: 70px;
+}
+
+.title-date{
+    font-weight: bold ;
+}
+
+li{
+    color:rgb(56, 59, 60);
+    margin-bottom: 5px;
+}
+
+h1,h2,h3{
+    display:flex;
+    justify-content:center;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    align-items: flex-start;
+    background-color: #fbf9f9;
+}
+
+.main-content {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    margin-top: 8px;
+}
