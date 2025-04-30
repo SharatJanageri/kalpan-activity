@@ -33,7 +33,7 @@ class SchedulerController extends Controller
             $scheduledList = $this->scheduler->schedulingTask($activityArray, $this->holidayList);
     
             //rendering view
-            return view('scheduler.activityList', ['tasks' => $scheduledList, 'holidays' => $this->holidayList, 'error'=>null]);
+            return view('scheduler.activityList', ['tasks' => $scheduledList, 'holidays' => $this->holidayList]);
         } catch (Exception $e){
             return view('error', ['error' => $e]);
         }
