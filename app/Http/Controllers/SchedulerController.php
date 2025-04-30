@@ -28,12 +28,16 @@ class SchedulerController extends Controller
      * 
      */
     public function getActivities(){
-        $activityArray = $this->getSampleDataFromAWS($this->awsSampleUrl);
-
-        $scheduledList = $this->scheduler->schedulingTask($activityArray, $this->holidayList);
-
-        //rendering view
-        return view('scheduler.activityList', ['tasks'=> $scheduledList, 'holidays'=> $this->holidayList]);
+        try{
+            $activityArray = $this->getSampleDataFromAWS($this->awsSampleUrl);
+            $scheduledList = $this->scheduler->schedulingTask($activityArray, $this->holidayList);
+    
+            //rendering view
+            return view('scheduler.activityList', ['tasks' => $scheduledList, 'holidays' => $this->holidayList, 'error'=>null]);
+        } catch (Exception $e){
+            return view('error', ['error' => $e]);
+        }
+       
     }
 
 

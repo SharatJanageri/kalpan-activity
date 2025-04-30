@@ -20,7 +20,7 @@ class Scheduler extends Model
         $schedule = [];
         $day = new DateTime($day);
     
-        // Skip to Monday if today is weekend
+        //Skip to Monday if today is weekend
         if (in_array($day->format('N'), [6, 7])) {
             $day->modify('next Monday');
         }
@@ -59,7 +59,7 @@ class Scheduler extends Model
                     $availableThisWeek = 600 - $weeklyMinutes;
                     $canScheduleToday = min($remainingToday, $availableThisWeek);
         
-                    $dateStr = $day->format('Y-m-d');
+                    $dateStr = $day->format('d-M-Y');
         
                     // Check if we can fit the entire activity with threshold
                     if ( $canScheduleToday + $this->threshold >= $minutesLeft ) {
@@ -68,7 +68,6 @@ class Scheduler extends Model
                         $schedule[$dateStr][] = [
                             'task' => $activity['name'],
                             'minutes' => $minutesLeft,
-                            'completed' => $activity['isComplete']
                         ];
         
                         $dailyMinutes += $minutesLeft;
@@ -86,7 +85,6 @@ class Scheduler extends Model
                         $schedule[$dateStr][] = [
                             'task' => $activity['name'],
                             'minutes' => $canScheduleToday,
-                            'completed' => $activity['isComplete']
                         ];
         
                         $minutesLeft -= $canScheduleToday;

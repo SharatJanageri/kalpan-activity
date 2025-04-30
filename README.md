@@ -14,3 +14,6 @@ There are different constants defined in the functions
 # TestCases
 Written 2 test cases for the controller functions to get and create the schedule.
 ![Test Case Screenshot](./public/images/Kalpan-Test-Cases.png)
+```bash
+    Test File path: tests\Feature\SchedulerTest.php
+    Image Path: storage\app\public\Kalpan-Test-Cases.png
