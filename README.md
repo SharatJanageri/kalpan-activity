@@ -3,18 +3,17 @@ Prepares a schedule for given activity list  with 2 hours max time daily and 10 
 
 # Constants
 There are different constants defined in the functions 
+ - threshold - Gives a threshold time to add few more activity that can be added into schedule.
  - holidayList - Contains all the holiday dates on which the activity is not scheduled.
     ```bash
-    holiday list: '2025-05-01','2025-05-15','2025-05-20',
-    path: app\Http\Controllers\SchedulerController.php
+    HOLIDAYLIST: '2025-05-01','2025-05-15','2025-05-20',
+    THRESHOLD = 10
 
- - threshold - Gives a threshold time to add few more activity that can be added into schedule.
-    ```bash
-    threshold = 10 mins
-    path: app\Scheduler.php
+    path: app\Constants\SchedulerConstant.php
 
 # TestCases
 Written 2 test cases for the controller functions to get and create the schedule.
+
 ![Test Case Screenshot](.\storage\app\public\Kalpan-Test-Cases.png)
 ```bash
     Test File path: tests\Feature\SchedulerTest.php

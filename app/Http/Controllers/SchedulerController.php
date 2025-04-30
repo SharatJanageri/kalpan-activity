@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\SchedulerConstant;
 use App\Scheduler;
 use Exception;
 use Illuminate\Http\Request;
@@ -11,12 +12,6 @@ class SchedulerController extends Controller
     /** @var Scheduler */
     private Scheduler $scheduler;
     private string $awsSampleUrl = 'https://kp-lms-static.s3.us-east-2.amazonaws.com/activities.json';
-    
-    private array $holidayList = [
-        '2025-05-01',
-        '2025-05-15',
-        '2025-05-20',
-    ];
 
     public function __construct(Scheduler $scheduler)
     {
@@ -30,10 +25,10 @@ class SchedulerController extends Controller
     public function getActivities(){
         try{
             $activityArray = $this->getSampleDataFromAWS($this->awsSampleUrl);
-            $scheduledList = $this->scheduler->schedulingTask($activityArray, $this->holidayList);
+            $scheduledList = $this->scheduler->schedulingTask($activityArray, SchedulerConstant::HOLIDAYLIST);
     
             //rendering view
-            return view('scheduler.activityList', ['tasks' => $scheduledList, 'holidays' => $this->holidayList]);
+            return view('scheduler.activityList', ['tasks' => $scheduledList, 'holidays' => SchedulerConstant::HOLIDAYLIST]);
         } catch (Exception $e){
             return view('error', ['error' => $e]);
         }

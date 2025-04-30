@@ -2,12 +2,12 @@
 
 namespace App;
 
+use App\Constants\SchedulerConstant;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 class Scheduler extends Model
 {
-    private int $threshold = 10;
     
     /**
      * Function schedules the tasks according to the creteria given 
@@ -62,8 +62,8 @@ class Scheduler extends Model
                     $dateStr = $day->format('d-M-Y');
         
                     // Check if we can fit the entire activity with threshold
-                    if ( $canScheduleToday + $this->threshold >= $minutesLeft ) {
-                        $actualScheduled = min($minutesLeft, $canScheduleToday + $this->threshold);
+                    if ( $canScheduleToday + SchedulerConstant::THRESHOLD >= $minutesLeft ) {
+                        $actualScheduled = min($minutesLeft, $canScheduleToday + SchedulerConstant::THRESHOLD);
         
                         $schedule[$dateStr][] = [
                             'task' => $activity['name'],
