@@ -4,6 +4,7 @@
 <div class="container">
     <div class="main-content">
         <h1 class=".title"> Weekly Schedule for Student </h1>
+        <a href="#holiday-list"> Holiday List </a>
 
         @if(count($tasks) > 0)
             @foreach ($tasks as $date=>$entries)
@@ -26,7 +27,7 @@
         @endif
 
         <div class="sidebar">
-                <h2>Holiday List</h2>
+                <h2 id="holiday-list">Holiday List</h2>
                 @if(count($holidays) > 0)
                     <ul>
                         @foreach($holidays as $holiday)
