@@ -71,7 +71,7 @@
                     Activity Scheduler
                 </div>
                 <div  class="links">
-                    <li><a href="/get-activities"> Student Activity for Today </a></li>
+                    <li><a href="/get-activities"> Student Activity from Today </a></li>
                 </div>
                 
             </div>
