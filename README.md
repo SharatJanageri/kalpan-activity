@@ -34,10 +34,10 @@ Written 2 test cases for the controller functions to get and create the schedule
 
 - Run artisan generate to generate new app key
 ```
-    $ php artisan key:generate
+$ php artisan key:generate
 ```
 
 - Run the application using below command 
 ```
-    $ php artisan serve
+$ php artisan serve
 ```
