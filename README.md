@@ -11,10 +11,33 @@ There are different constants defined in the functions
 
     path: app\Constants\SchedulerConstant.php
 
+    
 # TestCases
 Written 2 test cases for the controller functions to get and create the schedule.
 
 ![Test Case Screenshot](.\storage\app\public\Kalpan-Test-Cases.png)
 ```bash
-    Test File path: tests\Feature\SchedulerTest.php
-    Image Path: storage\app\public\Kalpan-Test-Cases.png
+    TestFilepath: tests\Feature\SchedulerTest.php
+    ImagePath: storage\app\public\Kalpan-Test-Cases.png
+```
+
+# Run project on your local 
+- Clone project from the repo to local
+ ```bash
+ $ git clone https://github.com/SharatJanageri/kalpan-activity.git <project-folder-name>
+ ``` 
+- Move to project-folder, run composer install to generate dependencies in vendor folder 
+ ```
+ $ composer install
+```
+- Change .env.example filename to .env
+
+- Run artisan generate to generate new app key
+```
+    $ php artisan key:generate
+```
+
+- Run the application using below command 
+```
+    $ php artisan serve
+```
