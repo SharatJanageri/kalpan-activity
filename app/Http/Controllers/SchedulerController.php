@@ -11,7 +11,6 @@ class SchedulerController extends Controller
 {
     /** @var Scheduler */
     private Scheduler $scheduler;
-    private string $awsSampleUrl = 'https://kp-lms-static.s3.us-east-2.amazonaws.com/activities.json';
 
     public function __construct(Scheduler $scheduler)
     {
@@ -24,7 +23,7 @@ class SchedulerController extends Controller
      */
     public function getActivities(){
         try{
-            $activityArray = $this->getSampleDataFromAWS($this->awsSampleUrl);
+            $activityArray = $this->getSampleDataFromAWS(SchedulerConstant::AWSSAMPLEURL);
             $scheduledList = $this->scheduler->schedulingTask($activityArray, SchedulerConstant::HOLIDAYLIST);
     
             //rendering view
@@ -32,7 +31,6 @@ class SchedulerController extends Controller
         } catch (Exception $e){
             return view('error', ['error' => $e]);
         }
-       
     }
 
 

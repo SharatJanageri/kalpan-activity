@@ -8,6 +8,7 @@ There are different constants defined in the functions
     ```bash
     HOLIDAYLIST: '2025-05-01','2025-05-15','2025-05-20',
     THRESHOLD = 10
+    AWSSAMPLEURL = aws_sample_url
 
     path: app\Constants\SchedulerConstant.php
 

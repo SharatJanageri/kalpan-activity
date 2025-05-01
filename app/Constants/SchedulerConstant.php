@@ -3,11 +3,13 @@ namespace App\Constants;
 
 class SchedulerConstant
 {
-    const THRESHOLD = 10;
+    public const THRESHOLD = 10;
 
-    const HOLIDAYLIST = [
+    public const HOLIDAYLIST = [
         '2025-05-01',
         '2025-05-15',
         '2025-05-20',
     ];
+
+    public const AWSSAMPLEURL = 'https://kp-lms-static.s3.us-east-2.amazonaws.com/activities.json';
 }
