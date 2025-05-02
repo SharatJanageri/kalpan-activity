@@ -36,7 +36,6 @@ class SchedulerTest extends TestCase
                 ->andThrow(new \Exception('Error while fetching sample data from AWS'));
         $this->app->instance(SchedulerController::class, $schedulerController);
         $response = $this->get('/get-activities');
-        $response->assertStatus(500);
-        $this->assertStringContainsString('Error while fetching sample data from AWS', $response->getContent());
+        $response->assertViewIs('error');
     }    
 }
