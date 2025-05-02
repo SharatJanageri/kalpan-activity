@@ -63,7 +63,6 @@ class Scheduler extends Model
         
                     // Check if we can fit the entire activity with threshold
                     if ( $canScheduleToday + SchedulerConstant::THRESHOLD >= $minutesLeft ) {
-                        $actualScheduled = min($minutesLeft, $canScheduleToday + SchedulerConstant::THRESHOLD);
         
                         $schedule[$dateStr][] = [
                             'task' => $activity['name'],
