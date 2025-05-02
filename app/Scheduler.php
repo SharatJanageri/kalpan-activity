@@ -63,7 +63,6 @@ class Scheduler extends Model
         
                     // Check if we can fit the entire activity with threshold
                     if ( $canScheduleToday + SchedulerConstant::THRESHOLD >= $minutesLeft ) {
-        
                         $schedule[$dateStr][] = [
                             'task' => $activity['name'],
                             'minutes' => $minutesLeft,
@@ -72,12 +71,10 @@ class Scheduler extends Model
                         $dailyMinutes += $minutesLeft;
                         $weeklyMinutes += $minutesLeft;
                         $minutesLeft = 0;
-        
                         //Goto next date if 120 min is completed with the threshold
                         if ( $dailyMinutes >= 120 ) {
                             $day->modify('+1 day');
                             $dailyMinutes = 0;
-    
                         }
                     } else {
                         //else break the acitivty time schedule what we can for the day 
@@ -89,9 +86,8 @@ class Scheduler extends Model
                         $minutesLeft -= $canScheduleToday;
                         $dailyMinutes += $canScheduleToday;
                         $weeklyMinutes += $canScheduleToday;
-        
-                        $day->modify('+1 day');
                         $dailyMinutes = 0;
+                        $day->modify('+1 day');
                     }
                 }
             }            
