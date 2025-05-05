@@ -12,10 +12,11 @@ class Scheduler extends Model
     /**
      * Function schedules the tasks according to the creteria given 
      * @param mixed $tasks
-     * @param string $day
+     * @param array $holidayList
+     * @param string|null $day
      * return array
      */
-    public function schedulingTask(mixed $tasks, array $holidayList, string $day ='today'): array
+    public function schedulingTask($tasks, $holidayList, $day ='today'): array|null
     {
         $schedule = [];
         $day = new DateTime($day);

@@ -36,8 +36,8 @@ class SchedulerController extends Controller
 
     /**
      * Function to get the sample data from AWS.
-     * @param $awsURL
-     * @return array
+     * @param string $awsURL
+     * @return array|null
      * @throws Exception
      */
     public function getSampleDataFromAWS($awsURL): array|null
