@@ -11,12 +11,8 @@ class Scheduler extends Model
     
     /**
      * Function schedules the tasks according to the creteria given 
-     * @param mixed $tasks
-     * @param array $holidayList
-     * @param string|null $day
-     * return array
      */
-    public function schedulingTask($tasks, $holidayList, $day ='today'): array|null
+    public function schedulingTask($tasks, $holidayList, ?string $day ='today')
     {
         $schedule = [];
         $day = new DateTime($day);
